@@ -21,7 +21,7 @@ const Login = ({ handleLogin }) => {
             required
             type="Email"
             placeholder="Enter Your Email..."
-            className="w-3/4 py-3 px-5 border-2 outline-none border-emerald-600 rounded-full"
+            className="w-3/4 py-3 px-5 border-2 outline-none border-emerald-600 rounded-full text-gray-400"
           />
           <input
             value={password}
@@ -30,8 +30,8 @@ const Login = ({ handleLogin }) => {
             }}
             required
             type="password"
-            placeholder="Enter Your Email..."
-            className="w-3/4 py-3 px-5 border-2 outline-none border-emerald-600 rounded-full mt-6"
+            placeholder="Enter Your Password..."
+            className="w-3/4 py-3 px-5 border-2 outline-none border-emerald-600 rounded-full mt-6 text-gray-400"
           />
           <button
             onClick={(e) => handleSubmit(e)}

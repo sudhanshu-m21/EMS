@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Login from "./components/Auth/Login";
 import Admin from "./components/Dashboard/Admin";
 import Employee from "./components/Dashboard/Employee";
@@ -20,15 +20,28 @@ const App = () => {
         setLoggedInUserData(employee);
         localStorage.setItem(
           "loggedInUser",
-          JSON.stringify({ role: "employee" })
+          JSON.stringify({ role: "employee", data: employee })
         );
       }
     } else alert("Invalid Credentials.");
   };
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    if (loggedInUser) {
+      const userData = JSON.parse(loggedInUser);
+      setUser(userData.role);
+      setLoggedInUserData(userData.data);
+    }
+  }, []);
   return (
     <>
       {!user && <Login handleLogin={handleLogin} />}
-      {user === "admin" ? <Admin /> : <Employee data={loggedInUserData} />}
+      {user === "admin" ? (
+        <Admin />
+      ) : user === "employee" ? (
+        <Employee data={loggedInUserData} />
+      ) : null}
     </>
   );
 };
