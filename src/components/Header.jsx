@@ -1,15 +1,17 @@
 import React from "react";
 
-const Header = ({ data }) => {
+const Header = (props) => {
   const logoutUser = () => {
     localStorage.setItem("loggedInUser", "");
-    window.location.reload();
+    props.changeUser("");
   };
   return (
     <div className="flex items-end justify-between">
       <h1 className="text-2xl font-medium">
         Hello <br />{" "}
-        <span className="text-3xl font-semibold">{data?.firstName} 👋</span>
+        <span className="text-3xl font-semibold">
+          {props.data?.firstName} 👋
+        </span>
       </h1>
       <button
         onClick={logoutUser}
