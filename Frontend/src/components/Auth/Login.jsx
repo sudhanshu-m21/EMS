@@ -33,6 +33,15 @@ const Login = ({ handleLogin }) => {
             placeholder="Enter Your Password..."
             className="w-3/4 py-3 px-5 border-2 outline-none border-emerald-600 rounded-full mt-6 text-gray-400"
           />
+          <p className="text-sm !text-gray-500 mt-4">
+            Employee - Email: <code className="!text-gray-500">e@e.com</code>,
+            Password: <code className="!text-gray-500">123</code>
+          </p>
+          <p className="text-sm !text-gray-500">
+            Admin - Email: <code className="!text-gray-500">admin@me.com</code>,
+            Password: <code className="!text-gray-500">123</code>
+          </p>
+
           <button
             onClick={(e) => handleSubmit(e)}
             className="w-1/4 py-3 px-5 border-none bg-emerald-600 rounded-2xl mt-8"
